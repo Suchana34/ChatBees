@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #5c6bc0;
+}
+
+#login-area{
+    width:400px;
+    height: 250px;
+    padding:40px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color:#311b92;
+    text-align: center;
+
+}
+
+#login-area input[type="text"]{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background: none;
+    padding: 14px 10px 20px;
+    width: 200px;
+    color:wheat;
+    transition: 0.25s;
+    border: 1px solid ;
+    font-size: 20px;
+}
+#login-area input[type="text"]:focus{
+    width: 280px;    
+}
+
+
+#login-area input[type="submit"]{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background: none;
+    padding: 14px ;
+    width: 100px;
+    color:wheat;
+    transition: 0.25s;
+    border: 2px solid ;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+#login-area input[type="submit"]:hover{
+    background: #5c6bc0;
+}
+
+#login-text{
+    color:white;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 13px;
+}
+
+#chat-area{
+    height: 100%;
+    width:100%;
+    background-color: #5c6bc0;
+
+}
+
+#chat-area #users-area{
+    height: 100%;
+    width:20%;
+    background-color: aliceblue;
+    z-index: 1;
+}
+
+
