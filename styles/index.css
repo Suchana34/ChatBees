@@ -2,7 +2,8 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #5c6bc0;
+    background-color: #263238;
+    color: white;
 }
 
 #login-area{
@@ -13,7 +14,7 @@ body{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    background-color:#311b92;
+    background-color:#f44336;
     text-align: center;
 
 }
@@ -25,13 +26,16 @@ body{
     background: none;
     padding: 14px 10px 20px;
     width: 200px;
-    color:wheat;
+    color: white;
     transition: 0.25s;
-    border: 1px solid ;
+    border: 2px solid #66bb6a;
     font-size: 20px;
+    border-radius: 10px;
+
 }
 #login-area input[type="text"]:focus{
-    width: 280px;    
+    width: 280px;  
+    border: none;  
 }
 
 
@@ -47,11 +51,14 @@ body{
     border: 2px solid ;
     cursor: pointer;
     font-size: 15px;
+    border-radius: 10px;
 
 }
 
 #login-area input[type="submit"]:hover{
-    background: #5c6bc0;
+    background: #66bb6a;
+    border-radius: 10px;
+    border: none;
 }
 
 #login-text{
@@ -62,17 +69,113 @@ body{
 }
 
 #chat-area{
+    display: none;
     height: 100%;
     width:100%;
-    background-color: #5c6bc0;
-
 }
 
 #chat-area #users-area{
     height: 100%;
     width:20%;
-    background-color: aliceblue;
-    z-index: 1;
+    position: absolute;
+    background-color:#f44336;
+}
+
+#chat-area #users-area #online-users-text{
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+#chat-area #users-area #online-users{
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+li{
+    padding: 4px;
+    list-style-type: none;
 }
 
 
+#chat-area #message-area{
+    float: right;
+    height: 100%;
+    width: calc(80%);
+}
+
+#chat-area #message-area #display-message-area{
+    width: 94%;
+    height:90%;
+    border-top: 1px solid transparent;
+}
+
+#chat-area #message-area #display-message-area #messages{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#chat-area #message-area #display-message-area #messages li{
+    color:white;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+#chat-area #message-area #display-message-area #messages li:nth-child(odd){
+    padding: 10px 10px;
+    background-color: #66bb6a;
+    color: #263238;
+    font-weight: 200;
+}
+
+#chat-area #message-area #type-area{
+    position: absolute;
+    top:91%;
+    width:90%;
+}
+
+
+#chat-area #message-area #type-area input[type="text"]{
+    display: inline;
+    text-align: left;
+    border: 2px solid #66bb6a;
+    padding: 10px;
+    width: 75%;
+    background: none;
+    color: white;
+    transition: 0.25s;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+
+#chat-area #message-area #type-area input[type="text"]:focus{
+    border: none;
+    color:white;
+}
+
+#chat-area #message-area #type-area input[type="submit"]{
+    display: inline;
+    margin-left: 14px;
+    text-align: center;
+    background: none;
+    padding: 10px;
+    color:wheat;
+    transition: 0.25s;
+    border: 2px solid;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 7%;
+}
+
+#chat-area #message-area #type-area input[type="submit"]:hover{
+    background: #f44336;
+}
