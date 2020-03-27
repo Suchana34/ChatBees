@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <title>chatbees</title>
+
+    <script type="text/javascript" src = "socket.io/socket.io.js"></script>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
+
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="login-area">
+        <div id = "login-text">Login Page</div>
+
+        <div id="login-area-form">
+            <form id="login-form">
+                <input type="text" id = "Username" placeholder="Username" autocomplete="off">
+                <input type="submit" id="login-submit" value="Login">
+            </form>
+        </div>
+
+    </div>
+
+    <div id="chat-area">
+    
+        <div id = "users-area">
+            <h1>Online Users</h1>
+
+            <div id = "online-users">
+                <ul id="users">
+                </ul>
+            </div>
+        </div>
+        <div id = "message-area">
+            <div id="display-message-area">
+                <ul id ="messages">
+                
+                </ul>
+            </div>
+
+            <div id="type-area">
+            
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+<script type="text/javascript">
+    
+    var socket = io(); //this function connects to the server   
+
+    function updateUsers(list){
+        for(var i=0; i<list.length; i++){
+            //append the user list to the id
+            $("#users").append("<li><b>" + list[i] + "</b></li>");
+        }
+    };
+
+    $("#login-form").submit(function(event){
+        event.preventDefault();
+        if($("#Username").val() == "" || $("#Username").val() == " " ){
+            alert("invalid Username");
+        }
+        else{
+            $username = $("#Username").val();
+
+            $("#login-area").hide();
+            $("#chat-area").show();
+
+            socket.emit('has connected', $username); //has connected is the event here
+        }
+    });
+
+    socket.on('has connected', (users) => {
+        $("#users").html("");
+        updateUsers(users);
+    }) ; //to receive the user has connected socket from the server
+
+    socket.on('has disconnected', (users)=>{
+        $("#users").html("");
+        updateUsers(users);
+    });
+</script>
+
+</html>
